@@ -1,25 +1,27 @@
+import java.util.concurrent.locks.*;
+
 //Needs to pudate every 20 milliseconds and stop after 2,000 updates
-public class Grid 
+public class Grid //implements Drawable
 {
 	private int row;
 	private int column;
-	
+	private int[][] spaces;
+
 	public Grid(int row, int column)
 	{
 		this.row = row;
 		this.column = column;
 	}
-
 	
-	public void update()
+	public void updateGrid()
 	{
+		
 		
 	}
 	
-	
-	public void setRow(int r)
+	public void addMovingObject()
 	{
-		this.row = r;
+		
 	}
 	
 	public int getRow()
@@ -27,10 +29,6 @@ public class Grid
 		return row;
 	}
 	
-	public void setColumn(int c)
-	{
-		this.column = c;
-	}
 	
 	public int getColumn()
 	{
