@@ -52,3 +52,13 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+/APSpec1.class
+/Car.class
+/CarSouth.class
+/Grid.class
+/GridDraw.class
+/MovingThings.class
+/ObjectGenerator.class
+/Vehicle.class
+/VehicleMovement.class
+/MovingObjects.class

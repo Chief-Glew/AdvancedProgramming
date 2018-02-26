@@ -1,60 +1,34 @@
 import java.util.*;
 
-public class Vehicle implements MovingThings
-{
-	//randomly allocate vehicles a constant speed
-	Random rand = new Random();
+public class Vehicle 
+{		//Class to define the vehicles who are going on the road. This will never be instantiated.
+		//May make it abstract. Think of other things common to vehicles in this example. 
 	
-	//Have a fixed Delay before entering spot
-	//final int DELAY = 4; //have a fixed delay once entering a position before moving to next position--but just the same as using a fixed speed?
-	final int SPEED = rand.nextInt(10);
+	int speed;
+	Random r = new Random();
 	
-	public void Vehicle()
-	{
+	public Vehicle() {	//Constructor
+		randomSpeed();
+	}
+	
+	public void randomSpeed() {
+		speed = (int) (Math.random() * 500 + 1);
 		
-		
+		//speed = r.nextInt(2000-1000) + 1000;
 	}
 	
-	public String isEastWest()
-	{
-		String eastWest = "|x|";
-		return eastWest;
+	public void setSpeed(int speed) {
+										//This method will generate a random speed. Need to set a limit
+		this.speed = speed;	
 	}
 	
-	public String isNorthSouth()
+	public int getSpeed() 
 	{
-		String northSouth = "|o|";
-		return northSouth;
+		return speed;
 	}
 	
-	public void getDirectionality()
-	{
-		
-	}
-	
-	public int getSpeed()
-	{
-		return SPEED;
-	}
-	
-	public void waitForSeconds()
-	{
-		
-	}
-	
-	public void destroy()
-	{
-		
-	}
-	
-	public void makeMovingObject()	
-	{
-		
-	}
-	
-	//A Vehicle has a speed, and direction
-	public void getVehicle()
-	{
-		
-	}
+
 }
+
+
+
