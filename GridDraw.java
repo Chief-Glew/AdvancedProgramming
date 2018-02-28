@@ -8,19 +8,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class GridDraw implements Runnable
 {
 	
-	//Give a grid number of Rows and Columns
-	Grid grid = new Grid(7, 8);
+	Grid grid;
 	ObjectGenerator generator;
-	
-	//Run for 2,000 draws
-	private final int TOTALTIME = 2000;
-	//update every 20 ms
-	private final int UPDATE = 20;
-	
+	private final int TOTALTIME;
+	private final int UPDATE;
 	private int count;
-	public void GridDraw()
+	
+	public GridDraw(int TOTALTIME, int UPDATE, ObjectGenerator generator, Grid grid)
 	{
-		
+		this.TOTALTIME = TOTALTIME;
+		this.UPDATE = UPDATE;
+		this.generator = generator;
+		this.grid = grid;
 	}
 	
 	//Set Object Generator on Grid to shoot out cars
