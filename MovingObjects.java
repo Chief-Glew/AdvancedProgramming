@@ -1,7 +1,7 @@
 
 public interface MovingObjects 
 {
-	public void direction();
+	public String direction();
 	public int speed();
 	public void waitForSeconds();
 	public void destroy();

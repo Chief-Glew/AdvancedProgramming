@@ -10,39 +10,41 @@ public class Vehicle implements MovingObjects
 	//final int DELAY = 4; //have a fixed delay once entering a position before moving to next position--but just the same as using a fixed speed?
 	final int SPEED = rand.nextInt(10);
 	
+	final String SYMBOLEW = "D";
+	final String SYMBOLNW = "M";
+	
 	public void Vehicle()
 	{
 		
 		
 	}
 	
-	public String isEastWest()
+	public String direction()
 	{
-		String eastWest = "|x|";
-		return eastWest;
-	}
-	
-	public String isNorthSouth()
-	{
-		String northSouth = "|o|";
-		return northSouth;
-	}
-	
-	public void direction()
-	{
+		//if direction is E-W
+		//if(direction = 1)
+		//{
 		//If they are traveling East West
 		//For the number of columns increase
-		//for(int i=0; i<columns; i++)
-		//{
-		//    column++;
+			//for(int i=0; i<columns; i++)
+			//{
+			//    column++;
+			//}
+		//	return SYMBOLEW;
 		//}
 		
+		//else
+		//{
 		/*else if dierction is North South:
-		 * for(int i=0; i<rows; i++)
-		 * {
-		 * 	row ++;
-		 * }
+		 	* for(int i=0; i<rows; i++)
+		 	* {
+		 	* 	row ++;
+		 	* }
 		 */
+		//  return SYMBOLNW;
+		//}
+		 String placeholder = "";
+		 return placeholder;
 	}
 	
 	public int speed()
@@ -50,16 +52,19 @@ public class Vehicle implements MovingObjects
 		return SPEED;
 	}
 	
+	//Delay before entering next spot
 	public void waitForSeconds()
 	{
 		
 	}
 	
+	//Destroy thing once it exits the grid
 	public void destroy()
 	{
 		
 	}
 	
+	//make the vehicle
 	public void makeMovingObject()	
 	{
 		

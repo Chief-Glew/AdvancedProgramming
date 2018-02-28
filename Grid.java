@@ -1,18 +1,66 @@
-//Needs to pudate every 20 milliseconds and stop after 2,000 updates
-public class Grid //implements Drawable
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+/* A grid has rows, columns, and spaces
+ * It has Object Generators attached to it that spew out objects
+ * Needs to pudate every 20 milliseconds and stop after 2,000 updates
+ */
+public class Grid 
 {
 	private int row;
 	private int column;
-	private String[][] spaces;
+	private int[][] spaces;
 	Vehicle car;
-
+	
+	private ReentrantLock gridSpaceLock = new ReentrantLock();
+	private Condition gridSpaceCondition = gridSpaceLock.newCondition();
+	
+	private boolean openSpace = false;
+	
+	final String SPACESYMBOL = "|";
+	
 	//Sets up grid with a number of rows and columns and spaces
 	public Grid(int row, int column)
 	{
 		this.row = row;
 		this.column = column;
 		
-		spaces = new String [this.row][this.column];
+		spaces = new int [this.row][this.column];
+	}
+	
+	public void addMovingObject(Vehicle movingObj)
+	{
+		try
+		{
+			Thread.sleep(movingObj.speed());
+		}
+		catch(InterruptedException interrupted)
+		{
+			interrupted.printStackTrace();
+		}
+		
+		//lock space once car is in
+		gridSpaceLock.lock();
+		
+		try
+		{
+			//if there is already a car in the space then need to wait
+			while(openSpace)
+			{
+				gridSpaceCondition.await();
+			}
+			openSpace = true;
+			String symbol = SPACESYMBOL + movingObj.direction();
+		}
+		catch(InterruptedException interruptedSecondTry)
+		{
+			interruptedSecondTry.printStackTrace();
+		}
+		//After that, unlock the space so something else can enter
+		finally
+		{
+			gridSpaceLock.unlock();
+		}
 	}
 	
 	public void updateGrid()
@@ -20,16 +68,7 @@ public class Grid //implements Drawable
 		
 		
 	}
-	
-	public void addCar()
-	{
-		
-	}
-	
-	public void addMovingObject()
-	{
-		
-	}
+
 	
 	public int getRow()
 	{
@@ -40,5 +79,9 @@ public class Grid //implements Drawable
 	public int getColumn()
 	{
 		return column;
+	}
+	public int[][] getSpaces()
+	{
+		return spaces;
 	}
 }
