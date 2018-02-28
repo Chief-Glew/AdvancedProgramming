@@ -11,13 +11,14 @@ public class Grid
 	private int column;
 	private int[][] spaces;
 	Vehicle car;
-	
 	private ReentrantLock gridSpaceLock = new ReentrantLock();
 	private Condition gridSpaceCondition = gridSpaceLock.newCondition();
-	
 	private boolean openSpace = false;
+	final String SPACESYMBOL = "|"; //better to just draw the side? Or the symbol be |x|? Because if empty, won't have draw
 	
-	final String SPACESYMBOL = "|";
+	//Better just to use spaces and NOT rows/columns? 
+	//Then to have a direction can use something like start position in a random spot on 'grid'
+	//and go to the next places of spaces[x][y] then to travel EW nextSpot = spaces[++currentPosition][inital] and N/S spaces[inital][++currentposition
 	
 	//Sets up grid with a number of rows and columns and spaces
 	public Grid(int row, int column)

@@ -4,47 +4,52 @@ import java.util.*;
 public class Vehicle implements MovingObjects
 {
 	//randomly allocate vehicles a constant speed
-	Random rand = new Random();
-	
-	//Have a fixed Delay before entering spot
-	//final int DELAY = 4; //have a fixed delay once entering a position before moving to next position--but just the same as using a fixed speed?
+	Random rand = new Random();	
 	final int SPEED = rand.nextInt(10);
-	
 	final String SYMBOLEW = "D";
 	final String SYMBOLNW = "M";
+	private int direction; //1 = EW, and 2 = NS
 	
-	public void Vehicle()
+	//a vehicle has a direction, a symbol and a speed
+	public void Vehicle(int direction)
 	{
-		
+		this.direction = direction;
 		
 	}
 	
-	public String direction()
+	//Not being used here because direction is defined as a vehicle
+	//But there should be a way to give random directions
+	public int direction()
+	{
+		return 0;
+	}
+	
+	public String symbol()
 	{
 		//if direction is E-W
-		//if(direction = 1)
-		//{
+		if(direction == 1)
+		{
+		//Traverse through here or in drawer?-Probs draw
 		//If they are traveling East West
 		//For the number of columns increase
-			//for(int i=0; i<columns; i++)
-			//{
-			//    column++;
-			//}
-		//	return SYMBOLEW;
-		//}
+//			for(int i=0; i<columns; i++)
+//			{
+//			    column++;
+//			}
+			return SYMBOLEW;
+		}
+		else
+		{
+			String placeholder = "";
+			 return placeholder;
+		}
+		//Traverse through here or in drawer?-Probs draw
+			//else if dierction is North South:
+//		 	for(int i=0; i<rows; i++)
+//		 	{
+//		 		row ++;
+//		 	}
 		
-		//else
-		//{
-		/*else if dierction is North South:
-		 	* for(int i=0; i<rows; i++)
-		 	* {
-		 	* 	row ++;
-		 	* }
-		 */
-		//  return SYMBOLNW;
-		//}
-		 String placeholder = "";
-		 return placeholder;
 	}
 	
 	public int speed()
