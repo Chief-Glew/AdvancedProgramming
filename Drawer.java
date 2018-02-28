@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /* The grid drawer just draws the grid.
  * On its start it fires up the ObjectGenerator
  */
-public class GridDraw implements Runnable
+public class Drawer implements Runnable
 {
 	
 	//Give a grid number of Rows and Columns
@@ -18,7 +18,7 @@ public class GridDraw implements Runnable
 	private final int UPDATE = 20;
 	
 	private int count;
-	public void GridDraw()
+	public Drawer()
 	{
 		
 	}
@@ -48,7 +48,7 @@ public class GridDraw implements Runnable
 			count++;
 			//Print out 'grid'/symbnols
 			System.out.println("");
-			catch (InterruptedException ahh) 
+			catch(InterruptedException ahh)
 			{
 				ahh.printStackTrace();
 			}	
