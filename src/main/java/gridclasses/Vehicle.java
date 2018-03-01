@@ -1,3 +1,5 @@
+package gridclasses;
+
 import java.util.*;
 
 //Sets up a vehicle which has a speed and direction

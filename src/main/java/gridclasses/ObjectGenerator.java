@@ -1,3 +1,5 @@
+package gridclasses;
+
 /* Instantiates cars at the edges of the grid either in
  * E to W direction or N to S direction
 */

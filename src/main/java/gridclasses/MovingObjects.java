@@ -1,3 +1,5 @@
+package gridclasses;
+
 
 public interface MovingObjects 
 {
